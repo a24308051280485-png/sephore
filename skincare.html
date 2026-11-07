@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SEPHORA - Skin Care</title>
+    <style>
+        body { background-color: white; color: black; font-family: "Times New Roman", serif; margin: 0; padding: 0; }
+        .barra-nav { background-color: black; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .barra-nav h1 { margin: 0; font-size: 30px; }
+        .barra-nav a { color: white; text-decoration: none; margin: 0 10px; font-size: 18px; }
+        .menu-derecha { font-size: 16px; }
+        .seccion { text-align: center; padding: 30px 10px; }
+        .seccion h2 { font-size: 26px; text-transform: uppercase; }
+        .contenedor-productos { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .tarjeta-producto { border: 1px solid black; padding: 15px; width: 220px; text-align: center; margin-bottom: 20px; }
+        .tarjeta-producto img { width: 100%; height: 200px; object-fit: contain; border-bottom: 1px solid black; padding-bottom: 10px; }
+        button { background-color: black; color: white; border: none; padding: 8px; width: 100%; cursor: pointer; font-family: "Times New Roman", serif; font-size: 15px; margin-top: 10px; }
+        footer { background-color: black; color: white; text-align: center; padding: 15px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="barra-nav">
+        <h1>SEPHORA</h1>
+        <div>
+            <a href="index.html">Inicio</a>
+            <a href="maquillaje.html">Maquillaje</a>
+            <a href="skincare.html">Skin Care</a>
+            <a href="fragancias.html">Fragancias</a>
+        </div>
+        <div class="menu-derecha" id="estado-sesion">
+            Buscar | <a href="login.html">Iniciar Sesión</a> | <a href="registro.html">Registro</a> | Carrito (0)
+        </div>
+    </div>
+
+    <script>
+        const usuarioActivo = localStorage.getItem('usuario_nombre');
+        const contenedorSesion = document.getElementById('estado-sesion');
+        if (usuarioActivo) {
+            contenedorSesion.innerHTML = `Buscar | <b>Hola, ${usuarioActivo}</b> | <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a> | Carrito (0)`;
+        }
+        function cerrarSesion() {
+            localStorage.removeItem('usuario_nombre');
+            window.location.reload();
+        }
+    </script>
+    <div class="seccion">
+        <h2>Skin Care</h2>
+        <div class="contenedor-productos">
+            <div class="tarjeta-producto">
+                <img src="skin.jpg" alt="Bases de piel">
+                <h3>Bases y Primers</h3>
+                <p>Colección Infallible</p>
+                <p><b>$32.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="pink.jpg" alt="Kit Pink Up">
+                <h3>Kit Cuidado Facial</h3>
+                <p>Agua Micelar y Tónico</p>
+                <p><b>$48.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="INFLABLE.jpg" alt="Fijador Infallible">
+                <h3>Spray Fijador Infallible</h3>
+                <p>L'Oréal Paris Setting Spray</p>
+                <p><b>$21.50</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="1.jpg" alt="La Roche-Posay Hyalu B5">
+                <h3>Hyalu B5 Serum</h3>
+                <p>La Roche-Posay</p>
+                <p><b>$39.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="2.jpg" alt="Beauty Creations Skin Set">
+                <h3>Set Cuidado Facial</h3>
+                <p>Beauty Creations Skin</p>
+                <p><b>$55.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="4.jpg" alt="Bioaqua Rice Raw Pulp">
+                <h3>Set de Arroz 6 Piezas</h3>
+                <p>Bioaqua Rejuvenating</p>
+                <p><b>$34.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="5.jpg" alt="Seasons Vitamina C">
+                <h3>Gel Hidratante Vitamina C</h3>
+                <p>Seasons Love Your Skin</p>
+                <p><b>$26.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="SKINNN.jpg" alt="Novage+ Niacinamide">
+                <h3>Niacinamide Power Drops 10%</h3>
+                <p>Novage+ Proceuticals</p>
+                <p><b>$42.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="S.jpg" alt="The Ordinary Buffet">
+                <h3>Buffet + Copper Peptides 1%</h3>
+                <p>The Ordinary</p>
+                <p><b>$31.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="SK.jpg" alt="e.l.f. Skin Set">
+                <h3>Set de Hidratación Esencial</h3>
+                <p>e.l.f. Skin</p>
+                <p><b>$29.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© Sephora - Todos los derechos reservados. | Desarrollado por Brissa Araceli Arreola Hurtado - 5°I</p>
+    </footer>
+
+    <script>
+        const usuarioActivo = localStorage.getItem('usuario_nombre');
+        const contenedorSesion = document.getElementById('estado-sesion');
+        if (usuarioActivo) {
+            contenedorSesion.innerHTML = `Buscar | <b>Hola, ${usuarioActivo}</b> | <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a> | Carrito (0)`;
+        }
+        function cerrarSesion() {
+            localStorage.removeItem('usuario_nombre');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

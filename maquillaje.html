@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SEPHORA - Maquillaje</title>
+    <style>
+        body { background-color: white; color: black; font-family: "Times New Roman", serif; margin: 0; padding: 0; }
+        .barra-nav { background-color: black; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .barra-nav h1 { margin: 0; font-size: 30px; }
+        .barra-nav a { color: white; text-decoration: none; margin: 0 10px; font-size: 18px; }
+        .menu-derecha { font-size: 16px; }
+        .seccion { text-align: center; padding: 30px 10px; }
+        .seccion h2 { font-size: 26px; text-transform: uppercase; }
+        .contenedor-productos { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .tarjeta-producto { border: 1px solid black; padding: 15px; width: 220px; text-align: center; margin-bottom: 20px; }
+        .tarjeta-producto img { width: 100%; height: 200px; object-fit: contain; border-bottom: 1px solid black; padding-bottom: 10px; }
+        button { background-color: black; color: white; border: none; padding: 8px; width: 100%; cursor: pointer; font-family: "Times New Roman", serif; font-size: 15px; margin-top: 10px; }
+        footer { background-color: black; color: white; text-align: center; padding: 15px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="barra-nav">
+        <h1>SEPHORA</h1>
+        <div>
+            <a href="index.html">Inicio</a>
+            <a href="maquillaje.html">Maquillaje</a>
+            <a href="skincare.html">Skin Care</a>
+            <a href="fragancias.html">Fragancias</a>
+        </div>
+        <div class="menu-derecha" id="estado-sesion">
+            Buscar | 
+            <a href="login.html">Iniciar Sesión</a> | 
+            <a href="registro.php"><b>Registrarse</b></a> | 
+            Carrito (0)
+        </div>
+    </div>
+    <script>
+        const usuarioActivo = localStorage.getItem('usuario_nombre');
+        const contenedorSesion = document.getElementById('estado-sesion');
+        if (usuarioActivo) {
+            contenedorSesion.innerHTML = `Buscar | <b>Hola, ${usuarioActivo}</b> | <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a> | Carrito (0)`;
+        }
+        function cerrarSesion() {
+            localStorage.removeItem('usuario_nombre');
+            window.location.reload();
+        }
+    </script>
+
+    <div class="seccion">
+        <h2>Maquillaje</h2>
+        <div class="contenedor-productos">
+            <div class="tarjeta-producto">
+                <img src="rimel.jpg" alt="Rímel">
+                <h3>Gel para Cejas</h3>
+                <p>Brow Stylist L'Oréal</p>
+                <p><b>$24.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="labiall.jpg" alt="Labial Líquido">
+                <h3>Brillo Labial</h3>
+                <p>Infallible Gloss L'Oréal</p>
+                <p><b>$18.50</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="labial.jpg" alt="Iluminador">
+                <h3>Iluminador en Barra</h3>
+                <p>Highlighter Stick</p>
+                <p><b>$22.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="paleta.jpg" alt="Paleta">
+                <h3>Paleta de Contorno</h3>
+                <p>Polvos y Correctores</p>
+                <p><b>$35.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="LABIALSH.jpg" alt="Maybelline Teddy Tint">
+                <h3>Super Stay Teddy Tint</h3>
+                <p>Maybelline New York</p>
+                <p><b>$19.99</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="SKIGIGHT.jpg" alt="Maybelline Sky High">
+                <h3>Máscara Lash Sensational</h3>
+                <p>Sky High Waterproof</p>
+                <p><b>$16.50</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="RUBOR.jpg" alt="Rubor MAC">
+                <h3>Rubor Compacto</h3>
+                <p>M·A·C Powder Blush</p>
+                <p><b>$28.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="tarjeta-producto">
+                <img src="ruborr.jpg" alt="Rubor Líquido Sheglam">
+                <h3>Rubor Líquido Color Bloom</h3>
+                <p>SHEGLAM Matte Blush</p>
+                <p><b>$12.00</b></p>
+                <button>Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© Sephora - Todos los derechos reservados. | Desarrollado por Brissa Araceli Arreola Hurtado - 5°I</p>
+    </footer>
+</body>
+</html>

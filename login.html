@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SEPHORA - Acceso de Usuario</title>
+    <style>
+        body { background-color: white; color: black; font-family: "Times New Roman", serif; margin: 0; padding: 0; }
+        .formulario { width: 320px; margin: 50px auto; border: 1px solid black; padding: 20px; text-align: center; }
+        input { width: 90%; padding: 8px; margin: 8px 0; border: 1px solid black; box-sizing: border-box; }
+        button { background-color: black; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; font-family: "Times New Roman", serif; font-size: 16px; margin-top: 10px; }
+        .btn-registro { background-color: white; color: black; border: 1px solid black; margin-top: 8px; }
+        a { color: black; text-decoration: underline; }
+        .mensaje { font-weight: bold; margin-bottom: 15px; color: red; }
+    </style>
+</head>
+<body>
+    <div class="formulario">
+        <h2>Iniciar Sesión</h2>
+        <div id="mensaje" class="mensaje"></div>
+        <form onsubmit="iniciarSesion(event)">
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid black;">
+        
+        <p>¿No tienes una cuenta aún?</p>
+        <button class="btn-registro" onclick="window.location.href='registro.php'">Crear nueva cuenta</button>
+        
+        <br><br>
+        <a href="index.html">Volver al Inicio</a>
+    </div>
+
+    <script>
+        function iniciarSesion(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            let usuarios = JSON.parse(localStorage.getItem('base_usuarios')) || [];
+
+            const usuarioValido = usuarios.find(u => u.email === email && u.password === password);
+
+            if (usuarioValido) {
+                localStorage.setItem('usuario_nombre', usuarioValido.nombre);
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('mensaje').innerText = 'Correo o contraseña incorrectos.';
+            }
+        }
+    </script>
+</body>
+</html>
